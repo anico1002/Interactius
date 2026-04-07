@@ -1,0 +1,31 @@
+#site-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 60px;
+  background: #fff;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(.16,1,.3,1);
+}
+
+#site-sidebar.visible {
+  opacity: 1;
+}
+
+.sidebar-logo {
+  position: absolute;
+  left: 16px;
+  top: 265px;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-logo svg {
+  display: block;
+  width: 208px;
+  height: 28px;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+}

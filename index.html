@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>interactius — Estrategia, Diseño y Transformación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<!-- ══════════════════════════
+     SIDEBAR
+══════════════════════════ -->
+<aside id="site-sidebar">
+  <a href="#" class="sidebar-logo">
+    <svg viewBox="0 0 878 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.756 114.947L16.7583 44.6669C11.1722 44.6669 5.58609 44.6565 0 44.6455V25.0128L19.2205 25.0342C26.7499 25.0342 32.2147 26.7951 35.6151 30.317C39.1369 33.7173 40.8978 39.1823 40.8978 46.7117L40.8956 114.947H16.756Z" fill="black"/>
+      <rect width="40.898" height="15.0007" fill="black"/>
+      <path d="M51.3154 114.944V25.3454H72.2641V39.346H75.1787C78.0933 34.0025 82.0402 29.8735 87.0193 26.9589C91.9984 23.9228 98.2527 22.4048 105.782 22.4048C113.311 22.4048 119.687 24.0443 124.909 27.3232C130.131 30.4807 134.078 35.1562 136.75 41.3498C139.543 47.5434 140.939 55.1943 140.939 64.3025V114.944H116.348V66.4884C116.348 58.959 114.829 53.1905 111.793 49.1829C108.757 45.1753 103.96 43.1715 97.4026 43.1715C93.2736 43.1715 89.5696 44.2037 86.2907 46.2682C83.0117 48.2113 80.4615 51.0652 78.6398 54.8299C76.8182 58.4732 75.9074 62.9666 75.9074 68.3101V114.944H51.3154Z" fill="black"/>
+      <path d="M182.442 114.945C176.006 114.945 170.359 113.974 165.501 112.031C160.765 109.966 157.061 106.627 154.389 102.012C151.718 97.2755 150.382 90.839 150.382 82.7024V0H174.974V24.5921H199.019V44.2658H174.974V94.543H198.473V114.945H182.442Z" fill="black"/>
+      <path d="M250.15 117.13C240.92 117.13 232.723 115.187 225.558 111.301C218.514 107.415 212.989 101.95 208.981 94.906C204.974 87.8623 202.97 79.7864 202.97 70.6782C202.97 61.2057 204.913 52.8869 208.799 45.7217C212.807 38.4352 218.332 32.7274 225.376 28.5984C232.541 24.4693 240.799 22.4048 250.15 22.4048C259.258 22.4048 267.212 24.3479 274.013 28.234C280.814 32.1202 286.157 37.4637 290.044 44.2644C293.93 50.9438 295.873 58.5339 295.873 67.0349C295.873 68.2494 295.812 69.6459 295.691 71.2247C295.691 72.682 295.63 74.2 295.508 75.7788H220.457V60.6592H270.916C270.552 54.9514 268.427 50.3973 264.541 46.9969C260.776 43.5965 256.04 41.8963 250.332 41.8963C246.082 41.8963 242.195 42.8678 238.674 44.8109C235.152 46.6326 232.359 49.4865 230.294 53.3726C228.23 57.1374 227.197 61.9343 227.197 67.7636V73.0463C227.197 78.0255 228.169 82.3367 230.112 85.98C232.055 89.5018 234.727 92.2343 238.127 94.1773C241.649 96.1204 245.596 97.092 249.968 97.092C254.461 97.092 258.226 96.1204 261.262 94.1773C264.298 92.1128 266.605 89.5018 268.184 86.3443H293.14C291.44 92.0521 288.586 97.2741 284.579 102.01C280.571 106.625 275.653 110.329 269.823 113.122C263.994 115.794 257.436 117.13 250.15 117.13Z" fill="black"/>
+      <path d="M327.704 112.339L327.701 42.0589L354.46 42.0375V22.4048L325.239 22.4262C317.71 22.4262 312.245 24.1871 308.844 27.7089C305.323 31.1093 303.562 36.5742 303.562 44.1037L303.564 112.339H327.704Z" fill="black"/>
+      <path d="M388.045 117.13C380.88 117.13 374.929 115.916 370.193 113.487C365.578 111.058 362.178 107.779 359.992 103.65C357.806 99.5208 356.713 94.9667 356.713 89.9876C356.713 84.4012 358.109 79.4828 360.903 75.2323C363.817 70.9818 368.189 67.7029 374.018 65.3955C379.848 62.9666 387.195 61.7522 396.06 61.7522H418.83C418.83 57.2588 418.162 53.5548 416.827 50.6402C415.612 47.7256 413.669 45.5396 410.997 44.0823C408.447 42.625 405.168 41.8963 401.161 41.8963C396.424 41.8963 392.356 42.9893 388.956 45.1753C385.677 47.2398 383.612 50.5187 382.762 55.0121H358.899C359.627 48.3328 361.813 42.5643 365.457 37.7065C369.221 32.8488 374.14 29.0841 380.212 26.4124C386.405 23.7407 393.388 22.4048 401.161 22.4048C409.904 22.4048 417.434 23.8621 423.749 26.7767C430.064 29.5699 434.921 33.7597 438.322 39.346C441.722 44.8109 443.422 51.4903 443.422 59.384V114.918H423.02V100.917H419.741C417.798 103.589 415.673 105.957 413.365 108.022C411.18 110.086 408.751 111.787 406.079 113.122C403.407 114.458 400.553 115.43 397.517 116.037C394.481 116.766 391.324 117.13 388.045 117.13ZM396.06 98.1849C399.46 98.1849 402.375 97.6384 404.804 96.5455C407.354 95.331 409.54 93.7523 411.362 91.8092C413.183 89.8661 414.58 87.6194 415.551 85.0691C416.644 82.3974 417.373 79.665 417.737 76.8718H398.792C395.028 76.8718 391.931 77.3575 389.502 78.3291C387.195 79.1792 385.495 80.4543 384.402 82.1545C383.309 83.7333 382.762 85.6156 382.762 87.8016C382.762 89.9876 383.309 91.8699 384.402 93.4487C385.495 95.0274 387.073 96.2419 389.138 97.092C391.202 97.8206 393.51 98.1849 396.06 98.1849Z" fill="black"/>
+      <path d="M498.655 117.13C489.061 117.13 480.681 115.126 473.516 111.119C466.473 106.99 460.947 101.403 456.94 94.3595C453.053 87.1944 451.11 78.997 451.11 69.7674C451.11 60.5378 453.114 52.4011 457.122 45.3574C461.129 38.1923 466.716 32.606 473.881 28.5984C481.046 24.4693 489.304 22.4048 498.655 22.4048C510.313 22.4048 520.089 25.4408 527.983 31.513C535.998 37.5851 541.099 45.9646 543.285 56.6516H517.235C516.264 52.2796 514.017 48.8793 510.495 46.4504C507.095 44.0216 503.087 42.8071 498.473 42.8071C494.222 42.8071 490.397 43.9001 486.996 46.0861C483.717 48.1506 481.106 51.1867 479.163 55.1943C477.22 59.2019 476.249 64.0596 476.249 69.7674C476.249 73.8964 476.795 77.6004 477.888 80.8794C478.981 84.1583 480.499 86.9515 482.442 89.2589C484.385 91.5663 486.693 93.3272 489.365 94.5417C492.158 95.6346 495.194 96.1811 498.473 96.1811C501.63 96.1811 504.484 95.6954 507.034 94.7238C509.585 93.6308 511.771 92.1128 513.592 90.1697C515.414 88.1052 516.628 85.6764 517.235 82.8832H543.285C541.099 93.3272 535.998 101.646 527.983 107.84C520.089 114.033 510.313 117.13 498.655 117.13Z" fill="black"/>
+      <path d="M584.567 114.945C578.13 114.945 572.483 113.974 567.625 112.031C562.889 109.966 559.185 106.627 556.513 102.012C553.842 97.2755 552.506 90.839 552.506 82.7024V0H577.098V24.5921H601.143V44.2658H577.098V94.543H600.597V114.945H584.567Z" fill="black"/>
+      <path d="M627.52 114.505L627.522 44.2243C621.936 44.2243 616.35 44.2138 610.764 44.2029V24.5702L629.984 24.5916C637.514 24.5916 642.978 26.3525 646.379 29.8743C649.901 33.2747 651.661 38.7396 651.661 46.2691L651.659 114.505H627.52Z" fill="black"/>
+      <path d="M610.764 0H726.516V15H610.764V0Z" fill="black"/>
+      <path d="M737.154 117.129C729.747 117.129 723.432 115.55 718.21 112.393C712.988 109.235 708.98 104.56 706.187 98.366C703.394 92.051 701.997 84.3394 701.997 75.2312V24.5897H726.407V73.0452C726.407 80.5747 727.925 86.3432 730.961 90.3508C734.118 94.3584 738.976 96.3622 745.534 96.3622C749.784 96.3622 753.488 95.3907 756.646 93.4476C759.925 91.3831 762.475 88.4684 764.297 84.7037C766.118 80.939 767.029 76.4456 767.029 71.2236V24.5897H791.621V114.553H770.672V100.552H767.758C764.965 105.653 761.018 109.721 755.917 112.757C750.938 115.672 744.684 117.129 737.154 117.129Z" fill="black"/>
+      <path d="M839.255 117.13C831.24 117.13 824.136 115.794 817.942 113.122C811.87 110.451 806.952 106.807 803.187 102.193C799.544 97.4563 797.419 92.1128 796.812 86.1621H821.404C821.889 88.3481 822.861 90.4126 824.318 92.3557C825.775 94.2988 827.718 95.8775 830.147 97.092C832.698 98.1849 835.612 98.7314 838.891 98.7314C842.292 98.7314 845.024 98.3064 847.088 97.4563C849.153 96.4847 850.671 95.2703 851.643 93.813C852.736 92.3557 853.282 90.777 853.282 89.0768C853.282 86.7693 852.493 85.0084 850.914 83.794C849.457 82.4581 847.271 81.3044 844.356 80.3329C841.563 79.3613 838.223 78.3291 834.337 77.2361C830.329 76.1431 826.261 74.9894 822.132 73.775C818.125 72.5606 814.421 71.0425 811.02 69.2209C807.62 67.2778 804.887 64.849 802.823 61.9343C800.88 58.8983 799.908 55.1336 799.908 50.6402C799.908 45.4181 801.366 40.6819 804.28 36.4314C807.195 32.1809 811.385 28.7805 816.849 26.2302C822.436 23.6799 829.054 22.4048 836.705 22.4048C847.635 22.4048 856.318 24.8944 862.754 29.8735C869.312 34.8526 873.138 41.7141 874.231 50.458H851.096C850.489 47.4219 848.91 45.0538 846.36 43.3536C843.931 41.6534 840.713 40.8033 836.705 40.8033C832.455 40.8033 829.176 41.6534 826.868 43.3536C824.682 44.9324 823.589 46.8755 823.589 49.1829C823.589 50.8831 824.318 52.3404 825.775 53.5548C827.233 54.6478 829.358 55.68 832.151 56.6516C835.066 57.5017 838.527 58.4732 842.534 59.5662C848.971 61.2664 854.861 63.088 860.204 65.0311C865.548 66.9742 869.798 69.6459 872.956 73.0463C876.113 76.3253 877.692 81.0008 877.692 87.073C877.813 92.9022 876.295 98.0635 873.138 102.557C869.98 107.05 865.548 110.633 859.84 113.305C854.132 115.855 847.271 117.13 839.255 117.13Z" fill="black"/>
+    </svg>
+  </a>
+</aside>
+
+<!-- ══════════════════════════
+     HEADER
+══════════════════════════ -->
+<header id="site-header">
+  <nav class="header-nav">
+    <a href="#work">work</a>
+    <a href="#intro">about</a>
+    <button class="hamburger" aria-label="Abrir menú">
+      <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+        <line x1="0" y1="4"  x2="20" y2="4"  stroke="#000" stroke-width="1.2"/>
+        <line x1="0" y1="12" x2="20" y2="12" stroke="#000" stroke-width="1.2"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<!-- ══════════════════════════
+     HERO
+══════════════════════════ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="svg-wrap">
+      <svg id="logo" viewBox="0 0 910 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- i -->
+        <g class="l1">
+          <path d="M16.756 114.947L16.7583 44.6669C11.1722 44.6669 5.58609 44.6565 0 44.6455V25.0128L19.2205 25.0342C26.7499 25.0342 32.2147 26.7951 35.6151 30.317C39.1369 33.7173 40.8978 39.1823 40.8978 46.7117L40.8956 114.947H16.756Z" fill="black"/>
+          <rect width="40.898" height="15.0007" fill="black"/>
+        </g>
+        <!-- n -->
+        <path class="l2" d="M51.3154 114.944V25.3454H72.2641V39.346H75.1787C78.0933 34.0025 82.0402 29.8735 87.0193 26.9589C91.9984 23.9228 98.2527 22.4048 105.782 22.4048C113.311 22.4048 119.687 24.0443 124.909 27.3232C130.131 30.4807 134.078 35.1562 136.75 41.3498C139.543 47.5434 140.939 55.1943 140.939 64.3025V114.944H116.348V66.4884C116.348 58.959 114.829 53.1905 111.793 49.1829C108.757 45.1753 103.96 43.1715 97.4026 43.1715C93.2736 43.1715 89.5696 44.2037 86.2907 46.2682C83.0117 48.2113 80.4615 51.0652 78.6398 54.8299C76.8182 58.4732 75.9074 62.9666 75.9074 68.3101V114.944H51.3154Z" fill="black"/>
+        <!-- t -->
+        <path class="l3" d="M182.442 114.945C176.006 114.945 170.359 113.974 165.501 112.031C160.765 109.966 157.061 106.627 154.389 102.012C151.718 97.2755 150.382 90.839 150.382 82.7024V0H174.974V24.5921H199.019V44.2658H174.974V94.543H198.473V114.945H182.442Z" fill="black"/>
+        <!-- e -->
+        <path class="l4" d="M250.15 117.13C240.92 117.13 232.723 115.187 225.558 111.301C218.514 107.415 212.989 101.95 208.981 94.906C204.974 87.8623 202.97 79.7864 202.97 70.6782C202.97 61.2057 204.913 52.8869 208.799 45.7217C212.807 38.4352 218.332 32.7274 225.376 28.5984C232.541 24.4693 240.799 22.4048 250.15 22.4048C259.258 22.4048 267.212 24.3479 274.013 28.234C280.814 32.1202 286.157 37.4637 290.044 44.2644C293.93 50.9438 295.873 58.5339 295.873 67.0349C295.873 68.2494 295.812 69.6459 295.691 71.2247C295.691 72.682 295.63 74.2 295.508 75.7788H220.457V60.6592H270.916C270.552 54.9514 268.427 50.3973 264.541 46.9969C260.776 43.5965 256.04 41.8963 250.332 41.8963C246.082 41.8963 242.195 42.8678 238.674 44.8109C235.152 46.6326 232.359 49.4865 230.294 53.3726C228.23 57.1374 227.197 61.9343 227.197 67.7636V73.0463C227.197 78.0255 228.169 82.3367 230.112 85.98C232.055 89.5018 234.727 92.2343 238.127 94.1773C241.649 96.1204 245.596 97.092 249.968 97.092C254.461 97.092 258.226 96.1204 261.262 94.1773C264.298 92.1128 266.605 89.5018 268.184 86.3443H293.14C291.44 92.0521 288.586 97.2741 284.579 102.01C280.571 106.625 275.653 110.329 269.823 113.122C263.994 115.794 257.436 117.13 250.15 117.13Z" fill="black"/>
+        <!-- r -->
+        <path class="l5" d="M327.704 112.339L327.701 42.0589L354.46 42.0375V22.4048L325.239 22.4262C317.71 22.4262 312.245 24.1871 308.844 27.7089C305.323 31.1093 303.562 36.5742 303.562 44.1037L303.564 112.339H327.704Z" fill="black"/>
+        <!-- a -->
+        <path class="l6" d="M388.045 117.13C380.88 117.13 374.929 115.916 370.193 113.487C365.578 111.058 362.178 107.779 359.992 103.65C357.806 99.5208 356.713 94.9667 356.713 89.9876C356.713 84.4012 358.109 79.4828 360.903 75.2323C363.817 70.9818 368.189 67.7029 374.018 65.3955C379.848 62.9666 387.195 61.7522 396.06 61.7522H418.83C418.83 57.2588 418.162 53.5548 416.827 50.6402C415.612 47.7256 413.669 45.5396 410.997 44.0823C408.447 42.625 405.168 41.8963 401.161 41.8963C396.424 41.8963 392.356 42.9893 388.956 45.1753C385.677 47.2398 383.612 50.5187 382.762 55.0121H358.899C359.627 48.3328 361.813 42.5643 365.457 37.7065C369.221 32.8488 374.14 29.0841 380.212 26.4124C386.405 23.7407 393.388 22.4048 401.161 22.4048C409.904 22.4048 417.434 23.8621 423.749 26.7767C430.064 29.5699 434.921 33.7597 438.322 39.346C441.722 44.8109 443.422 51.4903 443.422 59.384V114.918H423.02V100.917H419.741C417.798 103.589 415.673 105.957 413.365 108.022C411.18 110.086 408.751 111.787 406.079 113.122C403.407 114.458 400.553 115.43 397.517 116.037C394.481 116.766 391.324 117.13 388.045 117.13ZM396.06 98.1849C399.46 98.1849 402.375 97.6384 404.804 96.5455C407.354 95.331 409.54 93.7523 411.362 91.8092C413.183 89.8661 414.58 87.6194 415.551 85.0691C416.644 82.3974 417.373 79.665 417.737 76.8718H398.792C395.028 76.8718 391.931 77.3575 389.502 78.3291C387.195 79.1792 385.495 80.4543 384.402 82.1545C383.309 83.7333 382.762 85.6156 382.762 87.8016C382.762 89.9876 383.309 91.8699 384.402 93.4487C385.495 95.0274 387.073 96.2419 389.138 97.092C391.202 97.8206 393.51 98.1849 396.06 98.1849Z" fill="black"/>
+        <!-- c -->
+        <path class="l7" d="M498.655 117.13C489.061 117.13 480.681 115.126 473.516 111.119C466.473 106.99 460.947 101.403 456.94 94.3595C453.053 87.1944 451.11 78.997 451.11 69.7674C451.11 60.5378 453.114 52.4011 457.122 45.3574C461.129 38.1923 466.716 32.606 473.881 28.5984C481.046 24.4693 489.304 22.4048 498.655 22.4048C510.313 22.4048 520.089 25.4408 527.983 31.513C535.998 37.5851 541.099 45.9646 543.285 56.6516H517.235C516.264 52.2796 514.017 48.8793 510.495 46.4504C507.095 44.0216 503.087 42.8071 498.473 42.8071C494.222 42.8071 490.397 43.9001 486.996 46.0861C483.717 48.1506 481.106 51.1867 479.163 55.1943C477.22 59.2019 476.249 64.0596 476.249 69.7674C476.249 73.8964 476.795 77.6004 477.888 80.8794C478.981 84.1583 480.499 86.9515 482.442 89.2589C484.385 91.5663 486.693 93.3272 489.365 94.5417C492.158 95.6346 495.194 96.1811 498.473 96.1811C501.63 96.1811 504.484 95.6954 507.034 94.7238C509.585 93.6308 511.771 92.1128 513.592 90.1697C515.414 88.1052 516.628 85.6764 517.235 82.8832H543.285C541.099 93.3272 535.998 101.646 527.983 107.84C520.089 114.033 510.313 117.13 498.655 117.13Z" fill="black"/>
+        <!-- t (segunda) -->
+        <path class="l8" d="M584.567 114.945C578.13 114.945 572.483 113.974 567.625 112.031C562.889 109.966 559.185 106.627 556.513 102.012C553.842 97.2755 552.506 90.839 552.506 82.7024V0H577.098V24.5921H601.143V44.2658H577.098V94.543H600.597V114.945H584.567Z" fill="black"/>
+        <!-- i (cursor) -->
+        <path class="l9" d="M627.52 114.505L627.522 44.2243C621.936 44.2243 616.35 44.2138 610.764 44.2029V24.5702L629.984 24.5916C637.514 24.5916 642.978 26.3525 646.379 29.8743C649.901 33.2747 651.661 38.7396 651.661 46.2691L651.659 114.505H627.52Z" fill="black"/>
+        <!-- barra -->
+        <path class="bar" d="M610.764 0H726.516V15H610.764V0Z" fill="black"/>
+        <!-- us -->
+        <g class="us-group">
+          <path class="l10" d="M737.154 117.129C729.747 117.129 723.432 115.55 718.21 112.393C712.988 109.235 708.98 104.56 706.187 98.366C703.394 92.051 701.997 84.3394 701.997 75.2312V24.5897H726.407V73.0452C726.407 80.5747 727.925 86.3432 730.961 90.3508C734.118 94.3584 738.976 96.3622 745.534 96.3622C749.784 96.3622 753.488 95.3907 756.646 93.4476C759.925 91.3831 762.475 88.4684 764.297 84.7037C766.118 80.939 767.029 76.4456 767.029 71.2236V24.5897H791.621V114.553H770.672V100.552H767.758C764.965 105.653 761.018 109.721 755.917 112.757C750.938 115.672 744.684 117.129 737.154 117.129Z" fill="black"/>
+          <path class="l11" d="M839.255 117.13C831.24 117.13 824.136 115.794 817.942 113.122C811.87 110.451 806.952 106.807 803.187 102.193C799.544 97.4563 797.419 92.1128 796.812 86.1621H821.404C821.889 88.3481 822.861 90.4126 824.318 92.3557C825.775 94.2988 827.718 95.8775 830.147 97.092C832.698 98.1849 835.612 98.7314 838.891 98.7314C842.292 98.7314 845.024 98.3064 847.088 97.4563C849.153 96.4847 850.671 95.2703 851.643 93.813C852.736 92.3557 853.282 90.777 853.282 89.0768C853.282 86.7693 852.493 85.0084 850.914 83.794C849.457 82.4581 847.271 81.3044 844.356 80.3329C841.563 79.3613 838.223 78.3291 834.337 77.2361C830.329 76.1431 826.261 74.9894 822.132 73.775C818.125 72.5606 814.421 71.0425 811.02 69.2209C807.62 67.2778 804.887 64.849 802.823 61.9343C800.88 58.8983 799.908 55.1336 799.908 50.6402C799.908 45.4181 801.366 40.6819 804.28 36.4314C807.195 32.1809 811.385 28.7805 816.849 26.2302C822.436 23.6799 829.054 22.4048 836.705 22.4048C847.635 22.4048 856.318 24.8944 862.754 29.8735C869.312 34.8526 873.138 41.7141 874.231 50.458H851.096C850.489 47.4219 848.91 45.0538 846.36 43.3536C843.931 41.6534 840.713 40.8033 836.705 40.8033C832.455 40.8033 829.176 41.6534 826.868 43.3536C824.682 44.9324 823.589 46.8755 823.589 49.1829C823.589 50.8831 824.318 52.3404 825.775 53.5548C827.233 54.6478 829.358 55.68 832.151 56.6516C835.066 57.5017 838.527 58.4732 842.534 59.5662C848.971 61.2664 854.861 63.088 860.204 65.0311C865.548 66.9742 869.798 69.6459 872.956 73.0463C876.113 76.3253 877.692 81.0008 877.692 87.073C877.813 92.9022 876.295 98.0635 873.138 102.557C869.98 107.05 865.548 110.633 859.84 113.305C854.132 115.855 847.271 117.13 839.255 117.13Z" fill="black"/>
+        </g>
+
+      </svg>
+    </div>
+  </div>
+
+  <div class="img-card img1"><img src="/imgs/img1.png" alt=""></div>
+  <div class="img-card img2"><img src="/imgs/img2.png" alt=""></div>
+  <div class="img-card img3"><img src="/imgs/img3.png" alt=""></div>
+</section>
+
+<!-- ══════════════════════════
+     INTRO
+══════════════════════════ -->
+<section id="intro">
+  <div class="intro-main">
+    <p class="intro-body reveal" style="transition-delay: 240ms">
+      Hay un lugar entre el análisis y la intuición, entre la estrategia y la persona,
+      entre lo que los datos dicen y lo que las organizaciones sienten. Ese lugar no tiene
+      nombre en ningún catálogo de servicios.
+    </p>
+    <p class="intro-body reveal" style="transition-delay: 360ms">
+      Nosotros llevamos años construyendo ahí.
+    </p>
+  </div>
+  <p class="intro-aside reveal" style="transition-delay: 300ms">
+    Ayudamos a las organizaciones a identificar qué problema merece ser resuelto combinando diseño estratégico y pensamiento crítico.
+  </p>
+</section>
+
+<div class="img-separator">
+  <img src="/imgs/img-sep.png" alt="">
+</div>
+
+<!-- ══════════════════════════
+     SERVICIOS
+══════════════════════════ -->
+<section id="services">
+  <h2 class="section-title reveal">lo que hacemos</h2>
+
+  <div class="service-row" style="transition-delay: 80ms">
+    <span class="service-num">01</span>
+    <div class="service-name">
+      <p class="service-name-label">Estrategia</p>
+      <span class="service-name-display">Pensamiento<br>Estratégico</span>
+    </div>
+    <div class="service-body">
+      <p class="service-desc">Diseñamos la arquitectura de decisiones que orientan a las organizaciones en contextos de incertidumbre.</p>
+      <ul class="service-items">
+        <li>Diseño estratégico</li>
+        <li>Prospectiva estratégica</li>
+        <li>Estrategias de Marca</li>
+        <li>Estrategias de Innovación</li>
+      </ul>
+    </div>
+    <span class="service-plus">+</span>
+  </div>
+
+  <div class="service-row" style="transition-delay: 160ms">
+    <span class="service-num">02</span>
+    <div class="service-name">
+      <p class="service-name-label">Diseño y producto</p>
+      <span class="service-name-display">Activación de<br>Soluciones</span>
+    </div>
+    <div class="service-body">
+      <p class="service-desc">Convertimos la estrategia en productos y servicios validados, reduciendo riesgo y acelerando impacto.</p>
+      <ul class="service-items">
+        <li>Diseño de Productos y Servicios</li>
+        <li>Validación de Producto</li>
+        <li>Clónica®</li>
+        <li>Insight Panel®</li>
+      </ul>
+    </div>
+    <span class="service-plus">+</span>
+  </div>
+
+  <div class="service-row" style="transition-delay: 240ms">
+    <span class="service-num">03</span>
+    <div class="service-name">
+      <p class="service-name-label">Cultura y cambio</p>
+      <span class="service-name-display">Transformación<br>Cultural</span>
+    </div>
+    <div class="service-body">
+      <p class="service-desc">Acompañamos la evolución organizativa alineando cultura, capacidades y tecnología para transformar la manera en que la organización decide y actúa.</p>
+      <ul class="service-items">
+        <li>Cultura organizacional</li>
+        <li>Inteligencia Artificial aplicada</li>
+        <li>Bootcamps y Workshops para empresas</li>
+      </ul>
+    </div>
+    <span class="service-plus">+</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     WORK
+══════════════════════════ -->
+<section id="work">
+  <div class="clients-header reveal">
+    <h2 class="clients-headline">nuestros clientes</h2>
+  </div>
+
+  <p class="clients-intro reveal" style="transition-delay: 100ms">
+    Trabajamos con organizaciones que no buscan respuestas rápidas, sino decisiones que realmente importan. Compañías que operan en contextos complejos y entienden que avanzar no es cuestión de hacer más, sino de decidir mejor. Desde hace más de 13 años acompañamos a líderes y equipos a identificar qué problema merece ser resuelto, a cuestionar lo evidente y a convertir la incertidumbre en acción con criterio. Porque el impacto no está en los entregables, sino en las decisiones que los hacen posibles.
+  </p>
+
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img">
+        <img src="/imgs/p01_imagin.png" alt="Imagin">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 100ms">
+        <p class="work-client">Imagin</p>
+        <p class="work-name">Ecosistema de innovación</p>
+        <p class="work-tag">Innovation · FinTech</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img" style="transition-delay: 150ms">
+        <img src="/imgs/p02_dutti.png" alt="Massimo Dutti">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 250ms">
+        <p class="work-client">Massimo Dutti</p>
+        <p class="work-name">Estrategia de marca global</p>
+        <p class="work-tag">Brand Strategy · Retail</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img" style="transition-delay: 300ms">
+        <img src="/imgs/p03_serveo.png" alt="Serveo">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 400ms">
+        <p class="work-client">Serveo</p>
+        <p class="work-name">Transformación estratégica</p>
+        <p class="work-tag">Strategy · Facilities</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img" style="transition-delay: 80ms">
+        <img src="/imgs/p04_novartis.png" alt="Novartis">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 180ms">
+        <p class="work-client">Novartis</p>
+        <p class="work-name">Innovación en salud</p>
+        <p class="work-tag">Innovation · Pharma</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img" style="transition-delay: 160ms">
+        <img src="/imgs/p05_mahou.png" alt="Mahou">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 260ms">
+        <p class="work-client">Mahou</p>
+        <p class="work-name">Estrategia de portfolio</p>
+        <p class="work-tag">Portfolio Strategy · FMCG</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img" style="transition-delay: 240ms">
+        <img src="/imgs/p06_grandvalira.png" alt="Grandvalira">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 340ms">
+        <p class="work-client">Grandvalira</p>
+        <p class="work-name">Rediseño de experiencia</p>
+        <p class="work-tag">Experience Design · Tourism</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-img-wrap reveal-img" style="transition-delay: 320ms">
+        <img src="/imgs/p07_ecoembes.png" alt="Ecoembes">
+      </div>
+      <div class="work-info reveal" style="transition-delay: 420ms">
+        <p class="work-client">Ecoembes</p>
+        <p class="work-name">Estrategia de sostenibilidad</p>
+        <p class="work-tag">Sustainability · Environment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     CLIENTS
+══════════════════════════ -->
+<section id="clients">
+  <div class="clients-grid reveal" style="transition-delay: 200ms">
+    <span class="client-name">AD Parts</span>
+    <span class="client-name">Allianz</span>
+    <span class="client-name">AXA</span>
+    <span class="client-name">Banc Sabadell</span>
+    <span class="client-name">Bershka</span>
+    <span class="client-name">Brico Depot</span>
+    <span class="client-name">Bytetravel</span>
+    <span class="client-name">CaixaBank</span>
+    <span class="client-name">Castañer</span>
+    <span class="client-name">CatSalut</span>
+    <span class="client-name">Citring</span>
+    <span class="client-name">Consentio</span>
+    <span class="client-name">Desigual</span>
+    <span class="client-name">EAE</span>
+    <span class="client-name">Ecoembes</span>
+    <span class="client-name">MWC</span>
+    <span class="client-name">Frit Ravich</span>
+    <span class="client-name">FCB</span>
+    <span class="client-name">Gescaser</span>
+    <span class="client-name">GLS</span>
+    <span class="client-name">Grandvalira</span>
+    <span class="client-name">Grupo Piñero</span>
+    <span class="client-name">Hermex</span>
+    <span class="client-name">Ignion</span>
+    <span class="client-name">Imagin</span>
+    <span class="client-name">Inditex</span>
+    <span class="client-name">ING</span>
+    <span class="client-name">La Wash</span>
+    <span class="client-name">Mahou</span>
+    <span class="client-name">Mango</span>
+    <span class="client-name">Masmusculo</span>
+    <span class="client-name">Massimo Dutti</span>
+    <span class="client-name">Nestlé</span>
+    <span class="client-name">Novartis</span>
+    <span class="client-name">Quepo</span>
+    <span class="client-name">Ricoh</span>
+    <span class="client-name">Hospital Sant Pau</span>
+    <span class="client-name">Serveo</span>
+    <span class="client-name">Tecnocasa</span>
+    <span class="client-name">Telefónica</span>
+    <span class="client-name">UPF ESCI</span>
+    <span class="client-name">Vibia</span>
+    <span class="client-name">Voicemod</span>
+    <span class="client-name">Voro</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     FOOTER
+══════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <p class="footer-tagline">
+        Primero las personas.<br>
+        Después la tecnología.<br>
+        Nuestra newsletter es un espacio<br>para parar, pensar y cuestionar.
+      </p>
+    </div>
+    <div class="footer-right">
+      <p class="footer-clonica">En Clonica© diseñamos usuarios sintéticos que reflejan los comportamientos, encarnan la complejidad y atienden al contexto y a la voz de las personas en las que se inspiran.</p>
+      <p class="newsletter-label">Compartimos aprendizajes reales sobre diseño, estrategia e IA con criterio.</p>
+      <form class="newsletter-form" onsubmit="return false">
+        <input
+          class="newsletter-input"
+          type="email"
+          placeholder="tu@email.com"
+          aria-label="Email para newsletter"
+        >
+        <button class="newsletter-btn" type="submit" aria-label="Suscribirse">→</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-mid">
+    <div class="footer-contact">
+      <p>Pau Claris, 100 Planta 2<br>08009 Barcelona</p>
+      <p>Tel. 936 24 39 13</p>
+      <a href="mailto:hola@interactius.com">hola@interactius.com</a>
+    </div>
+    <nav class="footer-social">
+      <a href="#">Linkedin</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <a href="#" class="footer-logomark" aria-label="interactius">
+      <svg width="135" height="135" viewBox="0 0 135 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M109.369 119.025C97.8268 128.435 83.0921 134.078 67.0391 134.078C50.986 134.078 36.2513 128.435 24.709 119.025H109.369ZM15.0527 109.368C5.64327 97.8259 0 83.0918 0 67.0391C0 50.986 5.64298 36.2513 15.0527 24.709V109.368ZM119.025 24.709C128.435 36.2513 134.078 50.986 134.078 67.0391C134.078 83.0918 128.435 97.8259 119.025 109.368V24.709ZM67.0391 0C83.0921 0 97.8268 5.64298 109.369 15.0527H24.709C36.2513 5.64298 50.986 0 67.0391 0Z" fill="white"/>
+      </svg>
+    </a>
+    <span class="footer-meta">© 2026 interactius · Barcelona</span>
+    <nav class="footer-links">
+      <a href="#">Privacidad</a>
+      <a href="#">Legal</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </div>
+
+</footer>
+
+</body>
+</html>

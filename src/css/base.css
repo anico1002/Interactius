@@ -1,0 +1,43 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding-left: 60px;
+  background: #fff;
+  color: #000;
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section { padding: 120px 48px; }
+
+/* Full-width image separator */
+.img-separator {
+  position: relative;
+  z-index: 2;
+  line-height: 0;
+  width: 100%;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.img-separator img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Content sections scroll over fixed hero */
+#intro, #services, #work, #clients {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+}
