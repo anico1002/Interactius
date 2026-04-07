@@ -3,3 +3,5 @@ dist/
 .DS_Store
 refs/
 *.local
+.vercel
+public/.DS_Store
