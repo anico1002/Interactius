@@ -62,11 +62,21 @@
 .work-card:nth-child(7) .work-img-wrap { aspect-ratio: 4/3; }
 
 .work-img-wrap {
+  position: relative;
   overflow: hidden;
   width: 100%;
 }
 
+.work-img-wrap picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  line-height: 0;
+}
+
 .work-img-wrap img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
