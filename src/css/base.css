@@ -1,5 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
+button, a, input { touch-action: manipulation; }
+
 picture {
   display: block;
   width: 100%;

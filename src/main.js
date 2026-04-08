@@ -39,7 +39,11 @@ const headerEl  = document.getElementById('site-header');
 const sidebarEl = document.getElementById('site-sidebar');
 const img2El    = document.querySelector('.img2');
 
-setTimeout(expandHero, LOGO_DONE);
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  expandHero();
+} else {
+  setTimeout(expandHero, LOGO_DONE);
+}
 
 function expandHero() {
   const imgEl    = img2El.querySelector('img');
