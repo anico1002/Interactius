@@ -1,5 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; }
 
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
+
 body {
   margin: 0;
   padding-left: 60px;
