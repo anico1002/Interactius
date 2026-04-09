@@ -4,13 +4,16 @@
   #site-header { padding: 0 28px; left: 0; justify-content: flex-end; }
   #hero.hero-fixed { left: 0; }
   section { padding: 80px 28px; }
-  #intro {
-    padding: 100px 28px 80px;
+  #intro { padding: 100px 0 80px; }
+  .intro-inner {
+    padding: 0 28px;
     grid-template-columns: 1fr;
+    max-width: none;
   }
-  .intro-main { grid-column: 1; }
-  .intro-aside { grid-column: 1; margin-top: 40px; }
-  #services { padding: 80px 28px; }
+  .intro-main { grid-column: 1; grid-row: auto; }
+  .intro-right { grid-column: 1; grid-row: auto; margin-top: 40px; padding-top: 0; }
+  #services { padding: 80px 0; }
+  .services-inner { padding: 0 28px; }
 
   .service-row {
     grid-template-columns: 36px 1fr;

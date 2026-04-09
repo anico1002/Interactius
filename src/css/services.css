@@ -1,5 +1,13 @@
 #services {
-  padding: 120px clamp(48px, 8%, 96px) 120px clamp(48px, 20%, 280px);
+  padding: 120px 0;
+}
+
+/* Inner wrapper: mismo sistema que intro */
+.services-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-left: clamp(48px, 8%, 96px);
+  padding-right: clamp(48px, 20%, 280px);
 }
 
 .section-title {
@@ -9,6 +17,7 @@
   letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 64px;
+  text-wrap: balance;
 }
 
 .section-label {

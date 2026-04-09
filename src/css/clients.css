@@ -14,6 +14,7 @@
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.05;
+  text-wrap: balance;
 }
 
 .clients-intro {
