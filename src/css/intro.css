@@ -4,6 +4,7 @@
   column-gap: 40px;
   align-items: start;
   padding: 140px clamp(48px, 8%, 96px) 120px clamp(48px, 20%, 280px);
+  max-width: 1400px;
 }
 
 /* Row 1: texto principal izquierda, col 3 vacía → espacio en blanco a la derecha */
