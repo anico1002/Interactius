@@ -1,0 +1,194 @@
+/* ─── Overlay ─── */
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 60px;
+  right: 0;
+  height: 60px;
+  overflow: hidden;
+  background: #fff;
+  z-index: 150;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#menu-overlay.menu-open {
+  height: 100vh;
+  pointer-events: auto;
+  visibility: visible;
+  transition:
+    height     1.8s cubic-bezier(.16,1,.3,1),
+    visibility 0s   linear;
+}
+
+/* ─── Degradado ─── */
+#menu-overlay .menu-gradient {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  right: 0;
+  height: 55px;
+  background: linear-gradient(to right, #f4a47c, #d07fb8, #8b72cc);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease 0s; /* cierre: rápido, sin delay */
+}
+
+#menu-overlay.menu-open .menu-gradient {
+  opacity: 1;
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1) 1s; /* apertura: 1s delay */
+}
+
+/* ─── Servicios ─── */
+#menu-overlay .menu-services {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 250px;
+  right: 48px;
+  margin-top: -10px;
+  z-index: 2;
+}
+
+/* Estado inicial — solo opacidad */
+#menu-overlay .menu-service-item {
+  position: relative;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 30px 0 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(.16,1,.3,1);
+}
+
+#menu-overlay .menu-service-item.menu-item-visible {
+  opacity: 1;
+}
+
+#menu-overlay .menu-service-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #999;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  line-height: 1;
+}
+
+#menu-overlay .menu-service-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(30px, 3.2vw, 46px);
+  color: #000;
+  text-decoration: none;
+  line-height: 1.15;
+  flex: 1;
+  transition: opacity 0.2s ease;
+}
+
+#menu-overlay .menu-service-item:hover .menu-service-name {
+  opacity: 0.55;
+}
+
+/* ─── Icono + : mismo estilo que la landing ─── */
+#menu-overlay .menu-service-plus {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  margin-left: 24px;
+  align-self: center;
+  opacity: 0.15;
+  transition: opacity 200ms ease;
+}
+
+#menu-overlay .menu-service-plus::before,
+#menu-overlay .menu-service-plus::after {
+  content: '';
+  position: absolute;
+  background: #000;
+  top: 50%;
+  left: 50%;
+}
+
+#menu-overlay .menu-service-plus::before {
+  width: 1.5px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+}
+
+#menu-overlay .menu-service-plus::after {
+  width: 48px;
+  height: 1.5px;
+  transform: translate(-50%, -50%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #menu-overlay .menu-service-item:hover .menu-service-plus {
+    opacity: 0.5;
+  }
+}
+
+/* ─── Bottom ─── */
+#menu-overlay .menu-bottom {
+  position: absolute;
+  bottom: 44px;
+  left: 250px;
+  right: 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+/* Nav links: mismo peso visual que en la captura */
+#menu-overlay .menu-nav-links {
+  display: flex;
+  gap: 56px;
+  align-items: baseline;
+}
+
+#menu-overlay .menu-nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 24px;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+#menu-overlay .menu-nav-links a:hover {
+  opacity: 0.45;
+}
+
+/* Social: igual que .footer-social en tipografía y tamaño */
+#menu-overlay .menu-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  text-align: right;
+}
+
+#menu-overlay .menu-social a {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(0,0,0,0.4);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+#menu-overlay .menu-social a:hover {
+  color: rgba(0,0,0,0.85);
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  #menu-overlay,
+  #menu-overlay .menu-gradient,
+  #menu-overlay .menu-service-item,
+  #menu-overlay .menu-service-plus { transition: none; filter: none; }
+}

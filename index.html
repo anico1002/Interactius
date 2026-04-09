@@ -40,16 +40,48 @@
 ══════════════════════════ -->
 <header id="site-header">
   <nav class="header-nav">
-    <a href="#work">work</a>
-    <a href="#intro">about</a>
-    <button class="hamburger" aria-label="Abrir menú">
-      <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-        <line x1="0" y1="4"  x2="20" y2="4"  stroke="#000" stroke-width="1.2"/>
-        <line x1="0" y1="12" x2="20" y2="12" stroke="#000" stroke-width="1.2"/>
-      </svg>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
     </button>
   </nav>
 </header>
+
+<!-- ══════════════════════════
+     MENU OVERLAY
+══════════════════════════ -->
+<div id="menu-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <div class="menu-gradient"></div>
+  <nav class="menu-services">
+    <div class="menu-service-item">
+      <span class="menu-service-num">1</span>
+      <a href="#" class="menu-service-name">pensamiento estratégico</a>
+      <span class="menu-service-plus" aria-hidden="true"></span>
+    </div>
+    <div class="menu-service-item">
+      <span class="menu-service-num">2</span>
+      <a href="#" class="menu-service-name">activación de soluciones</a>
+      <span class="menu-service-plus" aria-hidden="true"></span>
+    </div>
+    <div class="menu-service-item">
+      <span class="menu-service-num">3</span>
+      <a href="#" class="menu-service-name">transformación cultural</a>
+      <span class="menu-service-plus" aria-hidden="true"></span>
+    </div>
+  </nav>
+  <div class="menu-bottom">
+    <div class="menu-nav-links">
+      <a href="#work">miradas ↗</a>
+      <a href="#intro">identidad ↗</a>
+      <a href="#">contactar ↗</a>
+    </div>
+    <div class="menu-social">
+      <a href="#">Linkedin</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════
      HERO
@@ -102,18 +134,23 @@
 ══════════════════════════ -->
 <section id="intro">
   <div class="intro-main">
-    <p class="intro-body reveal" style="transition-delay: 240ms">
+    <p class="intro-body reveal" style="transition-delay: 200ms">
       Hay un lugar entre el análisis y la intuición, entre la estrategia y la persona,
       entre lo que los datos dicen y lo que las organizaciones sienten. Ese lugar no tiene
       nombre en ningún catálogo de servicios.
     </p>
-    <p class="intro-body reveal" style="transition-delay: 360ms">
-      Nosotros llevamos años construyendo ahí.
+    <p class="intro-body reveal" style="transition-delay: 320ms">
+      Llevamos años construyendo ahí.
     </p>
   </div>
-  <p class="intro-aside reveal" style="transition-delay: 300ms">
-    Ayudamos a las organizaciones a identificar qué problema merece ser resuelto combinando diseño estratégico y pensamiento crítico.
-  </p>
+  <div class="intro-right">
+    <p class="intro-aside reveal" style="transition-delay: 260ms">
+      Combinamos diseño estratégico, criterio humano y tecnología para ayudar a las organizaciones a tomar mejores decisiones.
+    </p>
+    <p class="intro-sub reveal" style="transition-delay: 380ms">
+      Convertimos la estrategia en productos y servicios validados y activan cambios culturales sostenibles.
+    </p>
+  </div>
 </section>
 
 <div class="img-separator">
@@ -127,10 +164,9 @@
   <h2 class="section-title reveal">lo que hacemos</h2>
 
   <div class="service-row" style="transition-delay: 80ms">
-    <span class="service-num">01</span>
+    <span class="service-num">1</span>
     <div class="service-name">
-      <p class="service-name-label">Estrategia</p>
-      <span class="service-name-display">Pensamiento<br>Estratégico</span>
+      <span class="service-name-display">pensamiento<br>estratégico</span>
     </div>
     <div class="service-body">
       <p class="service-desc">Diseñamos la arquitectura de decisiones que orientan a las organizaciones en contextos de incertidumbre.</p>
@@ -145,16 +181,15 @@
   </div>
 
   <div class="service-row" style="transition-delay: 160ms">
-    <span class="service-num">02</span>
+    <span class="service-num">2</span>
     <div class="service-name">
-      <p class="service-name-label">Diseño y producto</p>
-      <span class="service-name-display">Activación de<br>Soluciones</span>
+      <span class="service-name-display">activación de<br>soluciones</span>
     </div>
     <div class="service-body">
       <p class="service-desc">Convertimos la estrategia en productos y servicios validados, reduciendo riesgo y acelerando impacto.</p>
       <ul class="service-items">
-        <li>Diseño de Productos y Servicios</li>
-        <li>Validación de Producto</li>
+        <li>Diseño de productos y servicios</li>
+        <li>Validación de producto</li>
         <li>Clónica®</li>
         <li>Insight Panel®</li>
       </ul>
@@ -163,10 +198,9 @@
   </div>
 
   <div class="service-row" style="transition-delay: 240ms">
-    <span class="service-num">03</span>
+    <span class="service-num">3</span>
     <div class="service-name">
-      <p class="service-name-label">Cultura y cambio</p>
-      <span class="service-name-display">Transformación<br>Cultural</span>
+      <span class="service-name-display">transformación<br>cultural</span>
     </div>
     <div class="service-body">
       <p class="service-desc">Acompañamos la evolución organizativa alineando cultura, capacidades y tecnología para transformar la manera en que la organización decide y actúa.</p>

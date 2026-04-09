@@ -33,29 +33,29 @@
 }
 
 .client-name {
-  font-size: clamp(24px, 3.2vw, 46px);
-  letter-spacing: -0.02em;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 42px);
+  letter-spacing: -0.01em;
   color: rgba(0,0,0,0.28);
   display: inline;
   opacity: 0;
-  filter: blur(14px);
   transition:
     opacity 1.1s cubic-bezier(.16,1,.3,1),
-    filter  0.9s cubic-bezier(.16,1,.3,1),
     color   250ms ease;
   cursor: default;
 }
 
 .client-name.revealed {
   opacity: 1;
-  filter: blur(0);
 }
 
 /* Dash siempre gris, no hereda el hover del padre */
 .client-name::after {
   content: ' — ';
-  color: rgba(0,0,0,0.28);
-  font-size: 0.8em;
+  color: rgba(0,0,0,0.18);
+  font-style: normal;
 }
 
 .client-name:last-child::after {
