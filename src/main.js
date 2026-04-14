@@ -33,6 +33,15 @@ if (clientsGrid) {
 // Bar + us-group animations complete at: 4.34s + 1.8s = 6.14s
 const LOGO_DONE    = 6140;
 const EXPAND_DUR   = 1800;
+const REVEAL_START = 4340;  // same delay as revealLTR
+const GLASS_DUR    = 1800;  // same duration as revealLTR
+const N_STRIPS     = 18;    // vertical glass strips
+const GLASS_AMP    = 52;    // max horizontal displacement (px)
+const GLASS_BLUR   = 14;    // max blur (px)
+const SWEEP_DUR    = 2000;
+const SWEEP_STRIPS = 22;
+const SWEEP_AMP    = 70;
+const SWEEP_BLUR   = 18;
 
 const heroEl    = document.getElementById('hero');
 const headerEl  = document.getElementById('site-header');
@@ -42,6 +51,7 @@ const img2El    = document.querySelector('.img2');
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   expandHero();
 } else {
+  setTimeout(startGlassAnimation, REVEAL_START);
   setTimeout(expandHero, LOGO_DONE);
 }
 
@@ -86,10 +96,17 @@ function expandHero() {
   // Logo turns white ~300ms into the expansion
   setTimeout(() => heroEl.classList.add('logo-white'), 300);
 
-  // After expansion: lock hero as parallax bg and reveal header
+  // After expansion: lock hero as parallax bg, reveal header, run glass sweep
   setTimeout(() => {
     makeHeroFixed();
     showHeader();
+
+    runSweep(img2El);
+    img2El.style.cursor = 'pointer';
+    heroEl.addEventListener('click', () => runSweep(img2El), { passive: true });
+
+    // img2 interactive hover distortion
+    initImg3Hover(img2El);
   }, EXPAND_DUR);
 }
 
@@ -200,3 +217,221 @@ function animateHeaderLetters() {
     });
   });
 }
+
+// ─── Glass strip helpers ───────────────────────────────────────────────────
+
+// Create a canvas overlay sized to cardEl and append it
+function makeCanvas(cardEl, zIndex = 'auto') {
+  if (getComputedStyle(cardEl).position === 'static') cardEl.style.position = 'relative';
+  const dpr  = window.devicePixelRatio || 1;
+  const rect = cardEl.getBoundingClientRect();
+  const w = rect.width;
+  const h = rect.height;
+  if (w === 0 || h === 0) return null;
+
+  const canvas = document.createElement('canvas');
+  canvas.width  = Math.round(w * dpr);
+  canvas.height = Math.round(h * dpr);
+  Object.assign(canvas.style, {
+    position: 'absolute', top: '0', left: '0',
+    width: '100%', height: '100%',
+    pointerEvents: 'none',
+    zIndex,
+  });
+  cardEl.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  return { canvas, ctx, w, h };
+}
+
+// Draw img with object-fit: cover semantics, shifted by xShift (canvas px)
+function drawCover(ctx, imgEl, w, h, xShift = 0) {
+  const iw = imgEl.naturalWidth;
+  const ih = imgEl.naturalHeight;
+  if (!iw || !ih) { ctx.drawImage(imgEl, xShift, 0, w, h); return; }
+
+  const imgAR = iw / ih;
+  const dstAR = w  / h;
+  let sx, sy, sw, sh;
+  if (imgAR > dstAR) {
+    sh = ih; sw = sh * dstAR;
+    sx = (iw - sw) / 2; sy = 0;
+  } else {
+    sw = iw; sh = sw / dstAR;
+    sx = 0; sy = (ih - sh) / 2;
+  }
+  sx += xShift * (sw / w);
+  ctx.drawImage(imgEl, sx, sy, sw, sh, 0, 0, w, h);
+}
+
+// Draw vertical glass strips: each strip shifts source x by a sine wave
+function drawGlassStrips(ctx, imgEl, w, h, amp, blur, nStrips, useCover) {
+  ctx.clearRect(0, 0, w, h);
+  const sw = w / nStrips;
+  for (let i = 0; i < nStrips; i++) {
+    const xShift = amp * Math.sin((i / nStrips) * Math.PI * 4);
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(i * sw, 0, sw + 1, h);
+    ctx.clip();
+    ctx.filter = blur > 0.2 ? `blur(${blur.toFixed(1)}px)` : 'none';
+    if (useCover) {
+      drawCover(ctx, imgEl, w, h, xShift);
+    } else {
+      ctx.translate(xShift, 0);
+      ctx.drawImage(imgEl, 0, 0, w, h);
+    }
+    ctx.restore();
+  }
+}
+
+// ─── img3 interactive hover distortion ────────────────────────────────────
+
+function initImg3Hover(cardEl) {
+  const imgEl   = cardEl.querySelector('img');
+  const H_STRIPS = 20;
+  const H_AMP    = 55;
+  const H_BLUR   = 12;
+
+  let res     = null;   // { canvas, ctx, w, h }
+  let mouseNX = 0.5;    // normalized X [0–1] within card
+  let amp     = 0;      // current amplitude
+  let rafId   = null;
+
+  function ensureCanvas() {
+    if (res) return;
+    res = makeCanvas(cardEl, '5');
+  }
+
+  function drawFrame() {
+    if (!res) return;
+    const { ctx, w, h } = res;
+    ctx.clearRect(0, 0, w, h);
+
+    const sw = w / H_STRIPS;
+    for (let i = 0; i < H_STRIPS; i++) {
+      const center = (i + 0.5) / H_STRIPS;
+      const dist   = Math.abs(center - mouseNX);
+      const env    = Math.exp(-dist * dist * 14) * amp; // gaussian around cursor
+
+      const xShift = env * Math.sin((i / H_STRIPS) * Math.PI * 6);
+      const blur   = (H_BLUR / H_AMP) * env;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(i * sw, 0, sw + 1, h);
+      ctx.clip();
+      if (blur > 0.1) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+      ctx.translate(xShift, 0);
+      ctx.drawImage(imgEl, 0, 0, w, h);
+      ctx.restore();
+    }
+  }
+
+  function fadeOut() {
+    amp *= 0.80;
+    drawFrame();
+    if (amp > 1) {
+      rafId = requestAnimationFrame(fadeOut);
+    } else {
+      amp = 0;
+      if (res) { res.canvas.remove(); res = null; }
+      rafId = null;
+    }
+  }
+
+  cardEl.addEventListener('mousemove', (e) => {
+    const rect = cardEl.getBoundingClientRect();
+    mouseNX = (e.clientX - rect.left) / rect.width;
+    amp     = H_AMP;
+
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    ensureCanvas();
+    drawFrame();
+  }, { passive: true });
+
+  cardEl.addEventListener('mouseleave', () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(fadeOut);
+  }, { passive: true });
+}
+
+// ─── Initial glass animation (img1, img2, img3 during revealLTR) ───────────
+
+function startGlassAnimation() {
+  const cards  = ['.img1', '.img2', '.img3']
+    .map(s => document.querySelector(s)).filter(Boolean);
+
+  const setups = cards.map(card => {
+    const res = makeCanvas(card);
+    return res ? { ...res, imgEl: card.querySelector('img') } : null;
+  }).filter(Boolean);
+
+  if (!setups.length) return;
+
+  const t0 = performance.now();
+  function tick(now) {
+    const p   = Math.min((now - t0) / GLASS_DUR, 1);
+    const rem = Math.pow(1 - p, 2.5); // ease-out: 1 → 0
+    const amp  = GLASS_AMP  * rem;
+    const blur = GLASS_BLUR * rem;
+    setups.forEach(({ ctx, imgEl, w, h }) =>
+      drawGlassStrips(ctx, imgEl, w, h, amp, blur, N_STRIPS, false)
+    );
+    if (p < 1) requestAnimationFrame(tick);
+    else setups.forEach(({ canvas }) => canvas.remove());
+  }
+  requestAnimationFrame(tick);
+}
+
+// ─── Fullscreen sweep (img2 after expansion, and on click) ─────────────────
+
+function runSweep(cardEl) {
+  // Remove any in-progress sweep canvas
+  cardEl.querySelectorAll('.sweep-canvas').forEach(c => c.remove());
+
+  const res = makeCanvas(cardEl, '10');
+  if (!res) return;
+  const { canvas, ctx, w, h } = res;
+  canvas.classList.add('sweep-canvas');
+
+  const imgEl = cardEl.querySelector('img');
+  const t0 = performance.now();
+
+  function tick(now) {
+    const p = Math.min((now - t0) / SWEEP_DUR, 1);
+    ctx.clearRect(0, 0, w, h);
+
+    // Base: clean image
+    ctx.filter = 'none';
+    drawCover(ctx, imgEl, w, h, 0);
+
+    // Sweep: glass wave travelling left → right
+    const sw = w / SWEEP_STRIPS;
+    for (let i = 0; i < SWEEP_STRIPS; i++) {
+      const center   = (i + 0.5) / SWEEP_STRIPS;
+      const dist     = Math.abs(center - p);
+      const envelope = Math.exp(-dist * dist * 28); // gaussian bell
+      if (envelope < 0.01) continue;
+
+      const xShift = SWEEP_AMP  * envelope * Math.sin((i / SWEEP_STRIPS) * Math.PI * 6);
+      const blur   = SWEEP_BLUR * envelope;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(i * sw, 0, sw + 1, h);
+      ctx.clip();
+      ctx.filter = blur > 0.2 ? `blur(${blur.toFixed(1)}px)` : 'none';
+      drawCover(ctx, imgEl, w, h, xShift);
+      ctx.restore();
+    }
+
+    if (p < 1) requestAnimationFrame(tick);
+    else canvas.remove();
+  }
+  requestAnimationFrame(tick);
+}
+
+// ─── Apply hover glass to all portfolio images ─────────────────────────────
+document.querySelectorAll('.work-img-wrap').forEach(el => initImg3Hover(el));

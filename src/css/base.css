@@ -1,5 +1,16 @@
 *, *::before, *::after { box-sizing: border-box; }
 
+/* ═══ GRID SYSTEM ══════════════════════════════════════════
+   12 cols · 32px gutters · 128px margins @ 1440px reference
+   Fluid: clamp(20px, 12vw - 45px, 128px)
+   At 540px → 20px | At 900px → ~63px | At 1440px → 128px
+══════════════════════════════════════════════════════════════ */
+:root {
+  --grid-margin: clamp(20px, 12vw - 45px, 128px);
+  --grid-gutter: 32px;
+  --grid-max-w:  1360px;
+}
+
 button, a, input { touch-action: manipulation; }
 
 picture {
@@ -20,7 +31,7 @@ body {
   overflow-x: hidden;
 }
 
-section { padding: 120px 48px; }
+section { padding: 120px 0; }
 
 /* Full-width image separator */
 .img-separator {

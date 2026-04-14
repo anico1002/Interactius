@@ -1,13 +1,17 @@
 #clients {
-  padding: 120px 48px;
+  padding: 120px 0;
 }
 
-.clients-header {
-  display: block;
-  margin-left: clamp(0px, calc(20% - 48px), 232px);
-  margin-bottom: 48px;
+/* Inner wrapper — alinea con el resto del grid */
+.clients-inner {
+  width: 100%;
+  max-width: calc(var(--grid-max-w) + 2 * var(--grid-margin));
+  margin: 0 auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
 }
 
+/* .clients-header y .clients-intro viven en #work — estilos allí */
 .clients-headline {
   font-family: 'DM Mono', monospace;
   font-size: clamp(24px, 3vw, 43px);
@@ -22,10 +26,7 @@
   line-height: 1.8;
   letter-spacing: -0.01em;
   opacity: 0.6;
-  margin-left: 28%;
-  max-width: 580px;
-  text-align: justify;
-  margin-bottom: 80px;
+  text-align: left;
 }
 
 .clients-grid {
@@ -52,7 +53,7 @@
   opacity: 1;
 }
 
-/* Dash siempre gris, no hereda el hover del padre */
+/* Dash siempre gris */
 .client-name::after {
   content: ' — ';
   color: rgba(0,0,0,0.18);

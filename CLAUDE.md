@@ -50,6 +50,32 @@ All images live in `public/imgs/` and are served at `/imgs/`. Every image uses `
 - Portfolio images (`p01_*` – `p07_*`): `loading="lazy"`
 - Stored but not yet used: `img01`, `img02`, `img05` (project assets for future sections)
 
+### Grid system (12-column editorial)
+
+CSS tokens in `base.css`:
+```css
+:root {
+  --grid-margin: clamp(20px, 12vw - 45px, 128px); /* 20px@540 → 128px@1440 */
+  --grid-gutter: 32px;
+  --grid-max-w:  1360px;
+}
+```
+
+**Critical constraint — inner wrapper pattern:**
+`section` elements must always be `width: 100%` (no `max-width`) because they provide the white `background` that scrolls over the fixed hero at `z-index: 2`. All content width control lives in an inner wrapper div:
+
+```css
+.section-inner {
+  width: 100%;
+  max-width: calc(var(--grid-max-w) + 2 * var(--grid-margin));
+  margin: 0 auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+}
+```
+
+Sections that need a 12-col grid make their inner wrapper the grid container (e.g. `.work-inner`, `.intro-inner`). Sections that just need alignment use the inner wrapper as a plain container (e.g. `.clients-inner`, `.footer-inner`).
+
 ### CSS modules load order
 
 `reset → base → sidebar → animations → header → hero → intro → services → work → clients → footer → responsive`

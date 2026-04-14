@@ -1,50 +1,58 @@
 @media (max-width: 900px) {
+  /* ── Sidebar / header ── */
   #site-sidebar { display: none; }
   body { padding-left: 0; }
   #site-header { padding: 0 28px; left: 0; justify-content: flex-end; }
   #hero.hero-fixed { left: 0; }
-  section { padding: 80px 28px; }
+
+  /* ── Intro ── */
   #intro { padding: 100px 0 80px; }
   .intro-inner {
-    padding: 0 28px;
     grid-template-columns: 1fr;
-    max-width: none;
   }
-  .intro-main { grid-column: 1; grid-row: auto; }
+  .intro-main  { grid-column: 1; grid-row: auto; }
   .intro-right { grid-column: 1; grid-row: auto; margin-top: 40px; padding-top: 0; }
-  #services { padding: 80px 0; }
-  .services-inner { padding: 0 28px; }
 
+  /* ── Services ── */
+  #services { padding: 80px 0; }
   .service-row {
     grid-template-columns: 36px 1fr;
     grid-template-areas: "num name" ". desc";
     gap: 20px 24px;
   }
-  .service-body { grid-area: desc; }
+  .service-num  { grid-area: num;  grid-column: auto; }
+  .service-name { grid-area: name; grid-column: auto; }
+  .service-body { grid-area: desc; grid-column: auto; }
   .service-plus { display: none; }
 
+  /* ── Work ── */
+  #work { padding: 80px 0; }
+  .clients-intro { grid-column: 1 / -1; }
   .work-grid {
     grid-template-columns: 1fr 1fr;
     column-gap: 14px;
     row-gap: 0;
   }
-  .work-card:nth-child(n) { grid-column: span 1; margin-top: 20px; }
-  .work-card:nth-child(1) { grid-column: span 2; margin-top: 0; }
+  .work-card:nth-child(n)  { grid-column: span 1; margin-top: 20px; }
+  .work-card:nth-child(1)  { grid-column: span 2; margin-top: 0; }
   .work-card:nth-child(1) .work-img-wrap { aspect-ratio: 16/9; }
   .work-card:nth-child(3) .work-img-wrap,
   .work-card:nth-child(5) .work-img-wrap,
   .work-card:nth-child(7) .work-img-wrap { aspect-ratio: 4/3; }
 
-  .clients-intro { margin-left: 0; text-align: left; }
+  /* ── Clients ── */
   .client-name { font-size: clamp(20px, 4vw, 32px); }
 
-  .footer-top { grid-template-columns: 1fr; gap: 56px; }
+  /* ── Footer ── */
+  .footer-top    { grid-template-columns: 1fr; gap: 56px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
 
+  /* ── Hero images ── */
   .img1, .img2, .img3 { display: none; }
 }
 
 @media (max-width: 540px) {
+  :root { --grid-gutter: 16px; }
   .header-nav a { display: none; }
   .work-grid { grid-template-columns: 1fr; }
   .work-card:nth-child(1) { grid-column: span 1; }

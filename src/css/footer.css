@@ -1,7 +1,16 @@
 footer {
   background: #000;
   color: #fff;
-  padding: 96px 48px 48px;
+  padding: 96px 0 48px;
+}
+
+/* Inner wrapper — alinea con el grid del resto de secciones */
+.footer-inner {
+  width: 100%;
+  max-width: calc(var(--grid-max-w) + 2 * var(--grid-margin));
+  margin: 0 auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
 }
 
 .footer-top {
