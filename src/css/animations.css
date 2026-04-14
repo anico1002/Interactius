@@ -1,3 +1,65 @@
+/* ─── Logo letter-by-letter ─── */
+@keyframes letraIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.l1  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .00s both; }
+.l2  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .14s both; }
+.l3  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .28s both; }
+.l4  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .42s both; }
+.l5  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .56s both; }
+.l6  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .70s both; }
+.l7  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .84s both; }
+.l8  { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1)  .98s both; }
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  35%, 65%  { opacity: 0; }
+}
+
+.l9 {
+  opacity: 0;
+  animation:
+    letraIn     .5s  cubic-bezier(.16,1,.3,1) 1.12s both,
+    cursorBlink .65s linear                   1.75s 3 forwards;
+}
+
+.l10 { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1) 3.70s both; }
+.l11 { opacity:0; animation: letraIn .5s cubic-bezier(.16,1,.3,1) 3.84s both; }
+
+@keyframes barCrece {
+  from { opacity: 1; transform: scaleX(0);    }
+  to   { opacity: 1; transform: scaleX(1.22); }
+}
+
+.bar {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: barCrece 1.8s cubic-bezier(.16,1,.3,1) 4.34s both;
+}
+
+@keyframes usPush {
+  0%   { transform: translateX(-42px); }
+  75%  { transform: translateX(25px);  }
+  100% { transform: translateX(-30px); }
+}
+
+.us-group {
+  animation: usPush 2.4s cubic-bezier(.16,1,.3,1) 4.34s both;
+}
+
+.sidebar-us {
+  transform: translateX(-30px);
+}
+
+/* ─── Hero images reveal ─── */
+@keyframes revealLTR {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0%   0 0); }
+}
+
 /* ─── Scroll reveals ─── */
 .reveal {
   opacity: 0;
@@ -9,6 +71,8 @@
 }
 
 .reveal-img {
+  width: 100%;
+  height: 100%;
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1.1s cubic-bezier(.16,1,.3,1);
 }
@@ -19,6 +83,12 @@
 
 /* ─── Reduced motion ─── */
 @media (prefers-reduced-motion: reduce) {
+  .l1,.l2,.l3,.l4,.l5,.l6,.l7,.l8,.l9,.l10,.l11,.bar,.us-group,.hero-tagline {
+    animation-duration: .01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+  }
+  .img-card { animation: none !important; clip-path: none !important; }
   .reveal, .reveal-img { transition: none; }
   .work-img-wrap img { transition: none; }
 }
