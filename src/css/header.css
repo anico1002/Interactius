@@ -4,60 +4,39 @@
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 0 48px;
+  justify-content: space-between;
+  padding: 0 48px 0 32px;
   background: #fff;
   z-index: 200;
-  /* Initially hidden — revealed by JS after hero animation */
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-#site-header.visible {
-  opacity: 1;
-  transform: none;
+  transition: transform 0.4s cubic-bezier(.16,1,.3,1);
 }
 
 #site-header.header-hidden {
   transform: translateY(-100%);
 }
 
-.header-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.header-logo svg {
-  height: 26px;
-  width: auto;
-  display: block;
-}
-
-/* Header logo letters hidden initially — animated by JS */
-.header-logo svg path,
-.header-logo svg rect {
-  opacity: 0;
-}
-
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.header-nav a {
+.header-contacto {
   font-family: 'DM Mono', monospace;
-  font-size: 16px;
-  letter-spacing: 0.02em;
-  color: #000;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #000;
   text-decoration: none;
-  opacity: 0.45;
+  padding: 9px 18px;
   transition: opacity 200ms ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .header-nav a:hover { opacity: 1; }
+  .header-contacto:hover { opacity: 0.75; }
 }
 
 .hamburger {
